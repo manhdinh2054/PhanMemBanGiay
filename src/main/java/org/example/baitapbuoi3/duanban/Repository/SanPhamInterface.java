@@ -1,6 +1,6 @@
 package org.example.baitapbuoi3.duanban.Repository;
 
-import org.example.baitapbuoi3.assignmentj6.Entity.Product;
+import org.example.baitapbuoi3.duanban.Entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

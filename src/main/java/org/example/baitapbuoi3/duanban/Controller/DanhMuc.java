@@ -2,12 +2,12 @@ package org.example.baitapbuoi3.duanban.Controller;
 
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
-import org.example.baitapbuoi3.assignmentj6.Entity.Account;
-import org.example.baitapbuoi3.assignmentj6.Entity.Category;
-import org.example.baitapbuoi3.assignmentj6.Entity.Product;
-import org.example.baitapbuoi3.assignmentj6.Repository.CategoryInterface;
-import org.example.baitapbuoi3.assignmentj6.Repository.SanPhamInterface;
-import org.example.baitapbuoi3.assignmentj6.Services.SanPham;
+import org.example.baitapbuoi3.duanban.Entity.Account;
+import org.example.baitapbuoi3.duanban.Entity.Category;
+import org.example.baitapbuoi3.duanban.Entity.Product;
+import org.example.baitapbuoi3.duanban.Repository.CategoryInterface;
+import org.example.baitapbuoi3.duanban.Repository.SanPhamInterface;
+import org.example.baitapbuoi3.duanban.Services.SanPham;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;

@@ -1,8 +1,8 @@
 package org.example.baitapbuoi3.duanban.Services;
 
 import lombok.RequiredArgsConstructor;
-import org.example.baitapbuoi3.assignmentj6.Entity.Product;
-import org.example.baitapbuoi3.assignmentj6.Repository.SanPhamInterface;
+import org.example.baitapbuoi3.duanban.Entity.Product;
+import org.example.baitapbuoi3.duanban.Repository.SanPhamInterface;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
