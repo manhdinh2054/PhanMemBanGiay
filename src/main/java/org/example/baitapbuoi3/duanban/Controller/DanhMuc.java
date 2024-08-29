@@ -6,12 +6,13 @@ import org.example.baitapbuoi3.duanban.Entity.Account;
 import org.example.baitapbuoi3.duanban.Entity.Category;
 import org.example.baitapbuoi3.duanban.Entity.Product;
 import org.example.baitapbuoi3.duanban.Repository.CategoryInterface;
-import org.example.baitapbuoi3.duanban.Repository.SanPhamInterface;
-import org.example.baitapbuoi3.duanban.Services.SanPham;
+import org.example.baitapbuoi3.duanban.Services.SanPhamServices;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -19,13 +20,15 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/trangchu.com")
 public class DanhMuc {
-    private final SanPham sp;
+    private final SanPhamServices sp;
     private final CategoryInterface cgi;
 
     @RequestMapping("/danhmuc/{id}")
-    public String danhMuc(@PathVariable("id") String id, Model model, HttpSession session) {
+    public String danhMuc(@PathVariable("id") String id, Model model, @RequestParam(defaultValue = "0")int page
+            ,@RequestParam(defaultValue = "8") int size
+            , HttpSession session) {
         List<Category> lst1 = cgi.findAll();
-        List<Product> lst = sp.getProductsByCategory(id);
+        Page<Product> lstpage = sp.getProductsByCategoryPage(id, page, size);
         Account account = (Account) session.getAttribute("loginuser");
         if(account != null) {
             model.addAttribute("account1", account);
@@ -34,7 +37,7 @@ public class DanhMuc {
             return "redirect:/login";
         }
         model.addAttribute("category",lst1);
-        model.addAttribute("productsdanhmuc", lst);
+        model.addAttribute("productsdanhmuc", lstpage);
         return "danhmuc";
     }
 }

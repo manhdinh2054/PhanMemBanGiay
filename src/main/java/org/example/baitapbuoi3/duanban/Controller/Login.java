@@ -30,18 +30,16 @@ public class Login {
 
     @GetMapping("/check")
     public String check(@RequestParam("username") String username,
-                        @RequestParam("password") String password, Model model, HttpSession session) {
-        List<Account> lst = aci.findAll();
+                        @RequestParam("password") String password,
+                        Model model, HttpSession session) {
         Account account = acs.findByUsername(username);
-        for (Account ac : lst) {
-            if (ac.getUsername().trim().equals(username) && ac.getPassword().trim().equals(password)) {
-                session.setAttribute("loginuser",account);
-                 return "redirect:/trangchu.com/sanpham";
-            } else {
-                model.addAttribute("error", "tài khoản hoặc mật khẩu không đúng");
-            }
-        }
-        return "login";
-    }
 
+        if (account != null && account.getPassword().trim().equals(password)) {
+            session.setAttribute("loginuser", account);
+            return "redirect:/trangchu.com/sanpham";
+        } else {
+            model.addAttribute("error", "Tài khoản hoặc mật khẩu không đúng");
+            return "login";
+        }
+    }
 }
