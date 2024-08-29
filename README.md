@@ -21,8 +21,9 @@ Dự án này là một ứng dụng bán hàng trực tuyến tập trung vào 
 - **IntelliJ IDEA**: Môi trường phát triển tích hợp (IDE) sử dụng cho dự án.
 
 ## Cài đặt và sử dụng
+  - Sử dụng database này(đây là database thử nghiệm sẽ có thay đổi sau khi hoàn thành): https://drive.google.com/file/d/1INH35N4DYg9Funu7Bl2L8whDsfYUispj/view?usp=sharing
 ### Yêu cầu hệ thống
 - JDK 17
-- MySQL
+- MSSQL 
 - Maven
 - IntelliJ IDEA
